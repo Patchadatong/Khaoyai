@@ -9,9 +9,9 @@ def get_hash(prev_block):
     if os.path.exists(block_file_path):
         with open(block_file_path, 'rb') as f:
             content = f.read()
-        return hashlib.md5(content).hexdigest()
+        return hashlib.sha256(content).hexdigest()
     else:
-        return hashlib.md5(b'').hexdigest()
+        return hashlib.sha256(b'').hexdigest()
 
 
 def check_integrity():
@@ -42,19 +42,21 @@ def write_block(booking_name, participants, booking_date):
     prev_block = str(blocks_count)
 
     data = {
-        "booking_name": booking_name,
-        "participants": participants,
-        "booking_date": booking_date,
-        "prev_block" :{
-            "hash": get_hash(prev_block),
-            "filename": prev_block
-        }
+        "block_index": blocks_count + 1,
+        "prev_hash": get_hash(prev_block),
+        "data": {
+            "booking_name": booking_name,
+            "participants": participants,
+            "booking_date": booking_date,
+        },
+        "block_hash": get_hash(prev_block), 
     }
 
-    current_block = BLOCKCHAIN_DIR + str(blocks_count + 1)
+    current_block = os.path.join(BLOCKCHAIN_DIR, str(blocks_count + 1))
 
     with open(current_block, 'w') as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
+
 
 
 def main():
