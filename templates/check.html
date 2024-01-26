@@ -48,6 +48,99 @@
             height: 100%;
             object-fit: cover;
         }
+        .custom-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; 
+            width: 100px;
+            color: aliceblue;
+            text-decoration: none; /* เพิ่มสไตล์นี้เพื่อลบขีดเส้นใต้ของลิงก์ */
+        }
+        .btn-7 {
+            background: linear-gradient(0deg, rgb(6, 238, 161) 0%, rgb(6, 91, 117) 100%);
+            line-height: 42px;
+            padding: 0;
+            border: none;
+            text-decoration: none; /* เพิ่มสไตล์นี้เพื่อลบขีดเส้นใต้ของลิงก์ */
+        }
+        .btn-7 span {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .btn-7:before,
+        .btn-7:after {
+            position: absolute;
+            content: "";
+            right: 0;
+            bottom: 0;
+            background: rgb(6, 91, 117);
+            box-shadow:
+            -7px -7px 20px 0px rgba(255,255,255,.9),
+            -4px -4px 5px 0px rgba(255,255,255,.9),
+            7px 7px 20px 0px rgba(0,0,0,.2),
+            4px 4px 5px 0px rgba(0,0,0,.3);
+            transition: all 0.3s ease;
+        }
+        .btn-7:before{
+            height: 0%;
+            width: 2px;
+        }
+        .btn-7:after {
+            width: 0%;
+            height: 2px;
+        }
+        .btn-7:hover{
+            color: aliceblue;
+            background: transparent;
+        }
+        .btn-7:hover:before {
+            height: 100%;
+        }
+        .btn-7:hover:after {
+            width: 100%;
+        }
+        .btn-7 span:before,
+        .btn-7 span:after {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 0;
+            background:  rgb(6, 91, 117);
+            box-shadow:
+            -7px -7px 20px 0px rgba(255,255,255,.9),
+            -4px -4px 5px 0px rgba(255,255,255,.9),
+            7px 7px 20px 0px rgba(0,0,0,.2),
+            4px 4px 5px 0px rgba(0,0,0,.3);
+            transition: all 0.3s ease;
+        }
+        .btn-7 span:before {
+            width: 2px;
+            height: 0%;
+        }
+        .btn-7 span:after {
+            height: 2px;
+            width: 0%;
+        }
+        .btn-7 span:hover:before {
+            height: 100%;
+        }
+        .btn-7 span:hover:after {
+            width: 100%;
+        }
+        .custom-btn span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -59,7 +152,7 @@
     </div>
     <div class="container">
         <img src="../static/khaoyai-1_orig.jpg" alt="">
+        <a href="#" class="custom-btn btn-7"><span>Check</span></a>
     </div>
-
 </body>
 </html>
