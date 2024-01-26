@@ -37,7 +37,8 @@ def search():
 
 @app.route('/check')
 def check():
-    return render_template("check.html")
+    results = check_integrity()
+    return render_template("check.html", check_results=results)
 
 if __name__ == "__main__":
     app.run(debug=True)
