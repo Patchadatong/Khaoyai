@@ -83,12 +83,12 @@
     </div>
     <div class="container">
         <img src="../static/khaoyai-1_orig.jpg" alt="">
-        <form>
-            <input type="text" name="name" placeholder="Enter your name">
+        <form action="{{ url_for('khaoyai') }}" method='POST'>
+            <input type="text" name="booking_name" placeholder="Enter your name">
             <input type="number" name="participants" placeholder="Number of participants">
             <input type="date" name="booking_date" placeholder="Booking date">
             <input type="submit" value="Submit">
-        </form>
+        </form>        
     </div>
 </body>
 </html>
