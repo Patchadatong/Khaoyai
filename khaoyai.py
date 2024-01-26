@@ -43,7 +43,10 @@ def write_block(booking_name, participants, booking_date):
 
     data = {
         "block_index": blocks_count + 1,
-        "prev_hash": get_hash(prev_block),
+        "prev_block":{
+            "hash": get_hash(prev_block),
+            "filename": prev_block
+        },
         "data": {
             "booking_name": booking_name,
             "participants": participants,

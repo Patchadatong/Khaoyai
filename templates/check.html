@@ -150,9 +150,36 @@
         <a href="/search">ค้นหาข้อมูล</a>
         <a href="/check">ตรวจสอบข้อมูล</a>
     </div>
-    <div class="container">
-        <img src="../static/khaoyai-1_orig.jpg" alt="">
-        <a href="#" class="custom-btn btn-7"><span>Check</span></a>
+
+
+    <div class="container" style="background-image: url('../static/khaoyai-1_orig.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"> 
+        <div class="container"> 
+            <div class="row"> 
+                <div class="col-6 mx-auto mt-5 text-center"> 
+                    {% for res in check_results %} 
+                        <div class="block-item">
+                            Block {{ res['block'] }} : {{ res['result'] }}
+                        </div> 
+                    {% endfor %} 
+                </div> 
+            </div> 
+        </div>
     </div>
+    
+    <style>
+        .outer-container {
+            border: 2px solid #ddd; 
+            padding: 20px; 
+            margin: 20px;
+        }
+    
+        .block-item {
+            border: 1px solid #ccc; 
+            padding: 10px; 
+            margin-bottom: 10px; 
+            background-color: white;
+        }
+    </style>
+    
 </body>
 </html>

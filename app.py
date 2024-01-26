@@ -1,6 +1,8 @@
 from khaoyai import write_block, check_integrity
 from flask import Flask, render_template, request
+
 import os
+
 
 app = Flask(__name__)
 
@@ -39,6 +41,7 @@ def search():
 def check():
     results = check_integrity()
     return render_template("check.html", check_results=results)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
